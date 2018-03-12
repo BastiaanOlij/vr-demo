@@ -9,7 +9,7 @@ path="res://.import/left_hand.obj-35fb55631736b947c9628cb16fd3cccc.mesh"
 files=[ "res://.import/left_hand.obj-35fb55631736b947c9628cb16fd3cccc.mesh" ]
 
 source_file="res://Meshes/left_hand.obj"
-source_md5="65be3ccd4faafc67c43b4f14372eab78"
+source_md5="bdd724bca2cf98fd8fed5718b878339e"
 
 dest_files=[ "res://.import/left_hand.obj-35fb55631736b947c9628cb16fd3cccc.mesh", "res://.import/left_hand.obj-35fb55631736b947c9628cb16fd3cccc.mesh" ]
 dest_md5="1f06b5130db5f17649a032299bb42220"
