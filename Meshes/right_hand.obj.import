@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/right_hand.obj-fe8031199a9a3a3bc3e7735f0a02fa70.mesh"
+
+[deps]
+
+files=[ "res://.import/right_hand.obj-fe8031199a9a3a3bc3e7735f0a02fa70.mesh" ]
+
+source_file="res://Meshes/right_hand.obj"
+source_md5="bc8842df6c953b75001a46ca35ba0b13"
+
+dest_files=[ "res://.import/right_hand.obj-fe8031199a9a3a3bc3e7735f0a02fa70.mesh", "res://.import/right_hand.obj-fe8031199a9a3a3bc3e7735f0a02fa70.mesh" ]
+dest_md5="fa3a28b3740beb564fe7cf74a2f0ef42"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 0.01, 0.01, 0.01 )

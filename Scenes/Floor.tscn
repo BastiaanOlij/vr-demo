@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Materials/checker.material" type="Material" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+
+material = ExtResource( 1 )
+size = Vector2( 1000, 1000 )
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="PlaneShape" id=2]
+
+plane = Plane( 0, 1, 0, 0 )
+
+[node name="Floor" type="StaticBody" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="FloorMesh" type="MeshInstance" parent="." index="0"]
+
+layers = 1
+material_override = null
+cast_shadow = 0
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry", "material" ]
+
+[node name="FloorCollision" type="CollisionShape" parent="." index="1"]
+
+shape = SubResource( 2 )
+disabled = false
+
+
