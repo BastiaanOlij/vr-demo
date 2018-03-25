@@ -1,17 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Images/flower_road_2k.hdr" type="Texture" id=3]
-[ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Stairs.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Follow_Camera.gd" type="Script" id=3]
+[ext_resource path="res://Images/flower_road_2k.hdr" type="Texture" id=4]
+[ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Stairs.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PanoramaSky" id=1]
 
 radiance_size = 4
-panorama = ExtResource( 3 )
+panorama = ExtResource( 4 )
 
 [sub_resource type="Environment" id=2]
 
@@ -98,13 +99,106 @@ _sections_unfolded = [ "Ambient Light", "Background", "Fog" ]
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Viewport" type="Viewport" parent="." index="0"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
+arvr = true
+size = Vector2( 100, 100 )
+own_world = false
+world = null
+transparent_bg = false
+msaa = 0
+hdr = true
+disable_3d = false
+usage = 2
+debug_draw = 0
+render_target_v_flip = false
+render_target_clear_mode = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Render Target", "Rendering", "Shadow Atlas" ]
+
+[node name="Player" parent="Viewport" index="0" instance=ExtResource( 2 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch = false
+stretch_shrink = 1
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer" index="0"]
+
+arvr = false
+size = Vector2( 0, 0 )
+own_world = false
+world = null
+transparent_bg = false
+msaa = 0
+hdr = true
+disable_3d = false
+usage = 2
+debug_draw = 0
+render_target_v_flip = false
+render_target_clear_mode = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Shadow Atlas" ]
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport" index="0"]
+
+transform = Transform( 0.101792, 0, -0.994806, 0, 1, 0, 0.994806, 0, 0.101792, -2.26339, 1.52225, 0 )
+keep_aspect = 1
+cull_mask = 1048573
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+script = ExtResource( 3 )
+follow_this_path = NodePath("../../../Viewport/Player")
+target_distance = 3.0
+target_height = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 
 environment = SubResource( 2 )
 
-[node name="Sun" type="DirectionalLight" parent="." index="2"]
+[node name="Sun" type="DirectionalLight" parent="." index="3"]
 
 transform = Transform( -0.790495, -0.386168, -0.475386, 0, -0.77618, 0.630511, -0.612468, 0.498416, 0.613566, 0, 9.37878, 0 )
 layers = 1
@@ -132,53 +226,53 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Shadow" ]
 
-[node name="Floor" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Floor" parent="." index="4" instance=ExtResource( 5 )]
 
-[node name="Box01" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Box01" parent="." index="5" instance=ExtResource( 6 )]
 
 transform = Transform( 0.946554, 0, -0.322545, 0, 1, 0, 0.322545, 0, 0.946554, 3, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Box02" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Box02" parent="." index="6" instance=ExtResource( 6 )]
 
 transform = Transform( 0.762114, 0, -0.647443, 0, 1, 0, 0.647443, 0, 0.762114, 0, 0, 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Box03" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Box03" parent="." index="7" instance=ExtResource( 6 )]
 
 transform = Transform( 0.901652, 0, 0.432463, 0, 1, 0, -0.432463, 0, 0.901652, -3, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Box04" parent="." index="7" instance=ExtResource( 5 )]
+[node name="Box04" parent="." index="8" instance=ExtResource( 6 )]
 
 transform = Transform( 0.796021, 0, -0.605269, 0, 1, 0, 0.605269, 0, 0.796021, 0, 0, -3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stairs" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Stairs" parent="." index="9" instance=ExtResource( 7 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
 
-[node name="Wall01" parent="." index="9" instance=ExtResource( 7 )]
+[node name="Wall01" parent="." index="10" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall02" parent="." index="10" instance=ExtResource( 7 )]
+[node name="Wall02" parent="." index="11" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall03" parent="." index="11" instance=ExtResource( 7 )]
+[node name="Wall03" parent="." index="12" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall04" parent="." index="12" instance=ExtResource( 7 )]
+[node name="Wall04" parent="." index="13" instance=ExtResource( 8 )]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall05" parent="." index="13" instance=ExtResource( 7 )]
+[node name="Wall05" parent="." index="14" instance=ExtResource( 8 )]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 9 )
 _sections_unfolded = [ "Transform" ]

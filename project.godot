@@ -20,7 +20,10 @@ singletons=[ "res://addons/godot-oculus/godot_oculus.gdnlib", "res://addons/godo
 
 [layer_names]
 
+3d_render/layer_1="On both"
 3d_physics/layer_1="World"
+3d_render/layer_2="Only on HMD"
+3d_render/layer_3="Not on HMD"
 3d_physics/layer_20="Player"
 
 [rendering]
