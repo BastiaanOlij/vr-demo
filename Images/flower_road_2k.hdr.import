@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/flower_road_2k.hdr-46bc6e40f142a8400fd2ea5c79261261.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Images/flower_road_2k.hdr"
-source_md5="6cbe4aedcd7ebcd9f233829a4e6a8b6c"
-
 dest_files=[ "res://.import/flower_road_2k.hdr-46bc6e40f142a8400fd2ea5c79261261.stex" ]
-dest_md5="1332bdac55a8bed1d1a09b8acfb7e9a2"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

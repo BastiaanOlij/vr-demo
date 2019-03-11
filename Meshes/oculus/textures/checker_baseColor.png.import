@@ -4,20 +4,22 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/checker_baseColor.png-becab78523832d10a06c4190025966af.s3tc.stex"
 path.etc2="res://.import/checker_baseColor.png-becab78523832d10a06c4190025966af.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 
 source_file="res://Meshes/oculus/textures/checker_baseColor.png"
-source_md5="cbeeabc7a13efd716f0a9a055896394f"
-
 dest_files=[ "res://.import/checker_baseColor.png-becab78523832d10a06c4190025966af.s3tc.stex", "res://.import/checker_baseColor.png-becab78523832d10a06c4190025966af.etc2.stex" ]
-dest_md5="0de07b19757d5901e73f2b4339c4e69b"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true
@@ -27,6 +29,7 @@ flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false
